@@ -1,6 +1,14 @@
-namespace APIauthent.Dbcontext
+using Microsoft.EntityFrameworkCore;
 
-public class AppdataContext : Dbcontext
-{
-    
+namespace APIauthent.Dbcontext;
+
+public class AppdataContext : DbContext
+{ 
+    public AppdataContext(DbContextOptions<AppdataContext> options)
+    : base (options)
+{}
+  public DbSet<Product> Products { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 }
+
